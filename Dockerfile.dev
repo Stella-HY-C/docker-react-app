@@ -1,0 +1,17 @@
+FROM node:alpine
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY . .
+
+# COPY . .
+
+# RUN npm install
+
+ENV CHOKIDAR_USEPOLLING=true
+
+CMD ["npm", "run", "start"]
